@@ -23,9 +23,9 @@ pipeline {
         sh "docker build -t fastapi-$ENV:latest ."
         sh "docker images"
         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKER_HUB --password-stdin"
-        sh "docker tag fastapi-$ENV:latest $DOCKER_HUB/fastapi:$$ENV"
-        sh "docker push $DOCKER_HUB/fastapi:$$ENV"
-        sh "docker rmi -f $DOCKER_HUB/fastapi:$$ENV"
+        sh "docker tag fastapi-$ENV:latest $DOCKER_HUB/fastapi:$ENV"
+        sh "docker push $DOCKER_HUB/fastapi:$ENV"
+        sh "docker rmi -f $DOCKER_HUB/fastapi:$ENV"
         sh "docker rmi -f fastapi-$ENV:latest"
       }
     }
