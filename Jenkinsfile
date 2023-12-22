@@ -1,8 +1,8 @@
 pipeline {
-  agent none
+  agent {label 'build-dev'}
   environment {
     ENV = "dev"
-    NODE = "build-server"
+    NODE = "build-dev"
     DOCKER_HUB = "namhn89"
     DOCKERHUB_CREDENTIALS=credentials('dockerhub')
   }
