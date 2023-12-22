@@ -9,7 +9,7 @@ DB_CONFIG = {
     "drivername": os.environ.get("DB_DRIVERNAME", "postgresql"),
     "username": os.environ.get("DB_USERNAME", "username"),
     "password": os.environ.get("DB_PASSWORD", "password"),
-    "host": os.environ.get("DB_HOST", "localhost"),
+    "host": os.environ.get("DB_HOST", "postgres"),
     "port": os.environ.get("DB_PORT", "5432"),
     "database": os.environ.get("DB_DATABASE", "dbname"),
 }

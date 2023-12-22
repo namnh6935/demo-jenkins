@@ -13,9 +13,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   fastapi-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: fastapi-test:latest
     depends_on:
       - postgres
     ports:
