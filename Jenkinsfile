@@ -36,9 +36,12 @@ pipeline {
           label "$NODE"
         }
       }
+      environment {
+        TAG = sh(returnStdout: true, script: "git rev-parse -short=10 HEAD | tail -n +2").trim()
+      }
       steps {
         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKER_HUB --password-stdin"
-        sh "docker pull fastapi-$ENV:latest $DOCKER_HUB/fastapi:$ENV"
+        sh "docker pull fastapi-$ENV:latest $DOCKER_HUB/fastapi:$TAG"
         sh "docker-compose up -d"
       }
     }
