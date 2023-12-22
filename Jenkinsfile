@@ -38,6 +38,7 @@ pipeline {
       steps {
         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKER_HUB --password-stdin"
         sh "docker pull fastapi-$ENV:latest $DOCKER_HUB/fastapi:$TAG"
+        sh "docker-compose up -d"
       }
     }
   }
