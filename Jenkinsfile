@@ -2,6 +2,8 @@ pipeline {
   agent {label 'build-dev'}
   environment {
     ENV = "dev"
+    PROD = "prod"
+    NODE_PROD = "build-prod"
     NODE = "build-dev"
     DOCKER_HUB = "namhn89"
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
@@ -32,7 +34,7 @@ pipeline {
         sh "docker rmi -f fastapi-$ENV:latest"
       }
     }
-    stage('Deploy dev') {
+    stage('Deploy Dev') {
       agent {
         node {
           label "$NODE"
