@@ -45,10 +45,10 @@ pipeline {
         sh "docker pull $DOCKER_HUB/fastapi:$ENV"
         sh "docker tag $DOCKER_HUB/fastapi:$ENV fastapi-$ENV:latest"
         // Deploy PostgreSQL using Docker Compose
-        sh "docker-compose -f docker-compose.yml up -d postgres"
+        sh "docker-compose -f docker-compose.yaml up -d postgres"
         // Wait for PostgreSQL to be healthy (customize the command as needed)
-        // sh "docker-compose -f docker-compose.yml exec postgres wait-for-it.sh -q --timeout=60 -- pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"
-        sh "docker-compose -f docker-compose.yml up -d fastapi-app"
+        // sh "docker-compose -f docker-compose.yaml exec postgres wait-for-it.sh -q --timeout=60 -- pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"
+        sh "docker-compose -f docker-compose.yaml up -d fastapi-app"
       }
     }
   }
