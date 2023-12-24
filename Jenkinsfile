@@ -5,9 +5,10 @@ pipeline {
     NODE = "build-dev"
     DOCKER_HUB = "namhn89"
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-    POSTGRES_USER = "username"
-    POSTGRES_DB = "dbname"
-    POSTGRES_PASSWORD = "password"
+    POSTGRES_USER = credentials("postgres_user")
+    POSTGRES_DB = credentials("postgres-dbname")
+    POSTGRES_PASSWORD = credentials("postgres_password")
+
   }
 
   stages {
