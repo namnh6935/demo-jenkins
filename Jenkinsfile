@@ -7,6 +7,7 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     POSTGRES_USER = "username"
     POSTGRES_DB = "dbname"
+    POSTGRES_PASSWORD = "password"
   }
 
   stages {
@@ -44,10 +45,6 @@ pipeline {
         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKER_HUB --password-stdin"
         sh "docker pull $DOCKER_HUB/fastapi:$ENV"
         sh "docker tag $DOCKER_HUB/fastapi:$ENV fastapi-$ENV:latest"
-        // Deploy PostgreSQL using Docker Compose
-        // sh "docker-compose -f docker-compose.yaml up -d postgres"
-        // Wait for PostgreSQL to be healthy (customize the command as needed)
-        // sh "docker-compose -f docker-compose.yaml exec postgres wait-for-it.sh -q --timeout=60 -- pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"
         sh "docker-compose -f docker-compose.yaml up -d"
       }
     }
