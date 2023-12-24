@@ -3,6 +3,7 @@ version: '3'
 services:
   postgres:
     image: postgres:latest
+    restart: always
     environment:
       POSTGRES_DB: dbname
       POSTGRES_USER: username
@@ -14,6 +15,7 @@ services:
 
   fastapi-app:
     image: fastapi-dev:latest
+    restart: always
     depends_on:
       - postgres
     ports:
