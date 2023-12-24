@@ -8,7 +8,6 @@ pipeline {
     POSTGRES_USER = credentials("postgres_user")
     POSTGRES_DB = credentials("postgres-dbname")
     POSTGRES_PASSWORD = credentials("postgres_password")
-
   }
 
   stages {
@@ -33,7 +32,7 @@ pipeline {
         sh "docker rmi -f fastapi-$ENV:latest"
       }
     }
-  stage('Deploy dev') {
+    stage('Deploy dev') {
       agent {
         node {
           label "$NODE"
