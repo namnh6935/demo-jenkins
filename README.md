@@ -1,7 +1,7 @@
 - [DevOps Training Homework](#devops-training-homework)
   - [Setting up Jenkins](#setting-up-jenkins)
   - [Setup a Jenkins pipeline using a Jenkinsfile.](#setup-a-jenkins-pipeline-using-a-jenkinsfile)
-  - [Establish and agent and node to build, deploy services](#establish-and-agent-and-node-to-build-deploy-services)
+  - [Establish an agent and node to build, deploy services](#establish-an-agent-and-node-to-build-deploy-services)
     - [Credential by secret text, secret password, secret user](#credential-by-secret-text-secret-password-secret-user)
     - [Create a pipeline in Jenkinsfile](#create-a-pipeline-in-jenkinsfile)
   - [Result](#result)
@@ -16,7 +16,7 @@ Jenkins will ask you for `admin` password. You can retrieve it by running:
 docker exec Jenkins_Docker cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 ## Setup a Jenkins pipeline using a Jenkinsfile.
-## Establish and agent and node to build, deploy services
+## Establish an agent and node to build, deploy services
 Create an agent to build image and push image to docker registry
 ![agent](./images/agent.png)
 ### Credential by secret text, secret password, secret user
