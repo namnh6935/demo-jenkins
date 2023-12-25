@@ -1,9 +1,10 @@
 - [DevOps Training Homework](#devops-training-homework)
   - [Setting up Jenkins](#setting-up-jenkins)
-  - [Setup Jenkins pipeline by Jenkinsfile](#setup-jenkins-pipeline-by-jenkinsfile)
-  - [Setup agent and node to build, deploy service](#setup-agent-and-node-to-build-deploy-service)
+  - [Setup a Jenkins pipeline using a Jenkinsfile.](#setup-a-jenkins-pipeline-using-a-jenkinsfile)
+  - [Establish and agent and node to build, deploy services](#establish-and-agent-and-node-to-build-deploy-services)
     - [Credential by secret text, secret password, secret user](#credential-by-secret-text-secret-password-secret-user)
-    - [Result](#result)
+    - [Create a pipeline in Jenkinsfile](#create-a-pipeline-in-jenkinsfile)
+  - [Result](#result)
 # DevOps Training Homework
 ## Setting up Jenkins
 Use a script to deploy jenkins container
@@ -14,14 +15,18 @@ Jenkins will ask you for `admin` password. You can retrieve it by running:
 ```
 docker exec Jenkins_Docker cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-## Setup Jenkins pipeline by Jenkinsfile
-## Setup agent and node to build, deploy service
+## Setup a Jenkins pipeline using a Jenkinsfile.
+## Establish and agent and node to build, deploy services
 Create an agent to build image and push image to docker registry
 ![agent](./images/agent.png)
 ### Credential by secret text, secret password, secret user
-Use credential jenkins(secret file, text, user, password) to secure the password, user, environment variables and database name in project
+Secure the project's password, user, environment variables, and database name by utilizing Jenkins credentials (secret file, text, user, password).
 ![credential](./images/credential.png)
 
-### Result
-The result of Jenskin pipeline
+### Create a pipeline in Jenkinsfile
+To set up a pipeline for building a Python service app, pushing the image to a Docker registry, and deploying the service to a target server, you can create a Jenkinsfile with the necessary stages.
+![jenkins](./images/jenkins.png)
+
+## Result
+The outcome of the Jenskin pipeline
 ![result](./images/result.png)
